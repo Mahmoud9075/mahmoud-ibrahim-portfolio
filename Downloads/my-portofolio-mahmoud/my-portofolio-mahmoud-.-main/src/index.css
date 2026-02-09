@@ -90,21 +90,25 @@
 
 @layer base {
   :root {
-    --background: 0 0% 90%;     /* أبيض */
-    --foreground: 222 47% 1
+    --background: 0 0% 90%;
     --foreground: 222 47% 11%;
     --card: 0 0% 100%;
-    --primary: 249 19% 22%;
+    --primary: 250 70% 68%;
+    --primary-foreground: 220 26% 14%;
     --border: 214 32% 91%;
+    --brand-1: 222 47% 11%;
+    --brand-2: 250 70% 68%;
   }
 
   .dark {
-      --background: 220 23% 8%;
-    --foreground: 110 120% 95%;
+    --background: 230 70% 5%;
+    --foreground: 222 47% 95%;
     --card: 220 26% 18%;
     --primary: 250 70% 68%;
     --primary-foreground: 220 26% 14%;
-    --border: 220 20% 25%;       
+    --border: 220 20% 25%;
+    --brand-1: 222 47% 95%;
+    --brand-2: 250 70% 68%;
   }
 
   * { @apply border-border; }
@@ -129,6 +133,9 @@
   @apply relative;
   text-shadow: 0 0 10px rgba(167, 139, 250, 0.5);
 }
+
+.brand-word-1 { color: hsl(var(--brand-1)); }
+.brand-word-2 { color: hsl(var(--brand-2)); }
 
 @utility card-hover {
   @apply transition-transform duration-300 hover:scale-[1.02] hover:shadow-lg;
@@ -157,7 +164,6 @@
   box-shadow: 0 0 10px 5px rgba(255, 255, 255, 0.3);
 }
 
-/* ===== Shortcuts to use animations easily ===== */
 @layer utilities {
   .anim-float        { animation: var(--animate-float); }
   .anim-pulse-subtle { animation: var(--animate-pulse-subtle); }
@@ -168,14 +174,12 @@
   .anim-fade-in-4    { animation: var(--animate-fade-in-delay-4); }
   .anim-meteor       { animation: var(--animate-meteor); }
 
-  /* NEW */
   .anim-spin-slow    { animation: var(--animate-spin-slow); }
   .anim-bounce-y     { animation: var(--animate-bounce-y); }
   .anim-bounce-x     { animation: var(--animate-bounce-x); }
   .anim-zoom         { animation: var(--animate-zoom-in-out); }
   .anim-wiggle       { animation: var(--animate-wiggle); }
   
-  /* Text Slide In (RTL/LTR) */
   .anim-slide-in-right   { animation: var(--animate-slide-in-right); }
   .anim-slide-in-right-1 { animation: var(--animate-slide-in-right-delay-1); }
   .anim-slide-in-right-2 { animation: var(--animate-slide-in-right-delay-2); }
@@ -183,14 +187,12 @@
   .anim-slide-in-left    { animation: var(--animate-slide-in-left); }
   .anim-slide-in-left-1  { animation: var(--animate-slide-in-left-delay-1); }
   
-  /* Scroll Reveal */
   .anim-reveal       { animation: var(--animate-scroll-reveal); opacity: 0; }
   .anim-reveal-1     { animation: var(--animate-scroll-reveal-delay-1); opacity: 0; }
   .anim-reveal-2     { animation: var(--animate-scroll-reveal-delay-2); opacity: 0; }
   .anim-reveal-3     { animation: var(--animate-scroll-reveal-delay-3); opacity: 0; }
   .anim-reveal-4     { animation: var(--animate-scroll-reveal-delay-4); opacity: 0; }
 
-  /* Line reveal (per-line text animation) */
   .anim-line-reveal  { animation: var(--animate-line-reveal); display: inline-block; will-change: transform, opacity; opacity: 0; }
 }
 

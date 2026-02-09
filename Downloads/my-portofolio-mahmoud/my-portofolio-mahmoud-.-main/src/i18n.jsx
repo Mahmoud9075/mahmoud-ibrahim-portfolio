@@ -1,8 +1,6 @@
-// src/i18n.jsx
 import { createContext, useContext, useEffect, useMemo, useState } from "react";
 
 const DICT = {
-  // Navbar + Footer
   "nav.home": { en: "Home", ar: "الرئيسية" },
   "nav.about": { en: "About", ar: "نبذة" },
   "nav.skills": { en: "Skills", ar: "المهارات" },
@@ -15,7 +13,6 @@ const DICT = {
     ar: "بُني بشغف بواسطة محمود إبراهيم © ٢٠٢٥",
   },
 
-  // Hero
   "hero.title.1": { en: "Hi, I'm", ar: "مرحبًا، أنا" },
   "hero.title.2": { en: "Mahmoud", ar: "محمود" },
   "hero.title.3": { en: "Ibrahim", ar: "إبراهيم" },
@@ -31,13 +28,11 @@ const DICT = {
   "hero.download": { en: "Download CV", ar: "تحميل السيرة الذاتية" },
   "hero.scroll": { en: "Scroll", ar: "اسحب لأسفل" },
 
-  // Hero CV Modal
   "hero.cv.title":      { en: "Download CV", ar: "تنزيل السيرة الذاتية" },
   "hero.cv.subtitle":   { en: "Are you sure you want to download the CV?", ar: "هل تريد تنزيل السيرة الذاتية؟" },
   "hero.cv.confirmBtn": { en: "Confirm", ar: "تأكيد" },
   "hero.cv.cancelBtn":  { en: "Cancel", ar: "إلغاء" },
 
-  // About
   "about.title": { en: "About", ar: "نبذة" },
   "about.me": { en: "Me", ar: "عني" },
   "about.role": {
@@ -65,7 +60,6 @@ const DICT = {
     ar: "اهتمام بإتاحة الاستخدام والأداء وكود نظيف مع تركيز على تصميم متمحور حول المستخدم.",
   },
 
-  // Skills
   "skills.title.1": { en: "My", ar: "مهاراتي" },
   "skills.title.2": { en: "Skills", ar: "المهارات" },
   "skills.subtitle": {
@@ -76,7 +70,6 @@ const DICT = {
   "skills.filter.frontend": { en: "Frontend", ar: "الواجهات الأمامية" },
   "skills.filter.tools": { en: "Tools", ar: "أدوات" },
 
-  // Education
   "education.title.1": { en: "My", ar: "رحلتي" },
   "education.title.2": { en: "Education", ar: "التعليم" },
   "education.subtitle": {
@@ -148,7 +141,6 @@ const DICT = {
     ar: "أونلاين",
   },
 
-  // Courses
   "courses.title.1": { en: "Professional", ar: "دورات" },
   "courses.title.2": { en: "Courses", ar: "احترافية" },
   "courses.subtitle": {
@@ -220,7 +212,6 @@ const DICT = {
     ar: "أونلاين",
   },
 
-  // Projects
   "projects.title.1": { en: "Featured", ar: "أبرز" },
   "projects.title.2": { en: "Projects", ar: "المشاريع" },
   "projects.subtitle": {
@@ -256,7 +247,6 @@ const DICT = {
     ar: "منصة رعاية صحية متجاوبة مصممة لإدارة بيانات المرضى بسهولة. تم بناؤها باستخدام Next.js وJavaScript وTailwind CSS لتقديم تطبيق ويب حديث وآمن وسهل الاستخدام يلبي احتياجات قطاع الرعاية الصحية.",
   },
 
-  // Contact
   "contact.title.1": { en: "Get In", ar: "تواصل" },
   "contact.title.2": { en: "Touch", ar: "معي" },
   "contact.subtitle": {
@@ -278,7 +268,6 @@ const DICT = {
   "contact.form.placeholder.message": { en: "Hello, I'd like to discuss...", ar: "مرحبًا، أود مناقشة..." },
   "contact.form.send": { en: "Send Message", ar: "إرسال الرسالة" },
 
-  // Toasts
   "toast.fill": { en: "Please fill in all fields", ar: "من فضلك اكمل الحقول" },
   "toast.email.invalid": { en: "Invalid email address", ar: "البريد الإلكتروني غير صحيح" },
   "toast.prepared.title": { en: "Message Prepared!", ar: "تم تجهيز الرسالة!" },
@@ -292,13 +281,11 @@ const DICT = {
     ar: "راجع صيغة البريد الإلكتروني وحاول مرة أخرى.",
   },
 
-  // Footer
   "footer.quickNav": { en: "Quick Navigation", ar: "روابط سريعة" },
   "footer.getInTouch": { en: "Get in Touch", ar: "تواصل معي" },
   "footer.location": { en: "Alexandria, Egypt", ar: "الإسكندرية، مصر" },
   "footer.whatsappLabel": { en: "WhatsApp:", ar: "واتساب:" },
 
-  // Not Found
   "notfound.message": { en: "Page not found", ar: "الصفحة غير موجودة" },
   "notfound.goHome": { en: "Go Home", ar: "العودة للرئيسية" },
 };
@@ -307,7 +294,6 @@ const LangContext = createContext(null);
 export const useLang = () => useContext(LangContext);
 
 export function LangProvider({ children }) {
-  // ✅ نسمح بتغيير اللغة + نحفظ آخر اختيار في المتصفّح
   const [lang, setLang] = useState(() => {
     try {
       return localStorage.getItem("lang") || "en";
@@ -323,7 +309,6 @@ export function LangProvider({ children }) {
     try {
       localStorage.setItem("lang", lang);
     } catch {
-      // تجاهل أي خطأ في التخزين المحلي
     }
   }, [lang]);
 
@@ -331,7 +316,6 @@ export function LangProvider({ children }) {
     () => (key) => {
       const entry = DICT[key];
       if (!entry) return key;
-      // لما اللغة ثابتة EN، ده يرجّع النسخة الإنجليزية دائماً
       return entry[lang] ?? entry.en ?? key;
     },
     [lang]

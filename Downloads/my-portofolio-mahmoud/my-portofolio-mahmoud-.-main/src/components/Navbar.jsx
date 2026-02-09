@@ -4,7 +4,6 @@ import { useEffect, useState } from "react";
 import { ThemeToggle } from "./ThemeToggle";
 import { useLang } from "@/i18n";
 
-// ✅ عناصر النافبار دايمًا إنجليزي (من غير Courses)
 const navItems = [
   { key: "nav.home",       href: "#hero" },
   { key: "nav.about",      href: "#about" },
@@ -14,7 +13,6 @@ const navItems = [
   { key: "nav.contact",    href: "#contact" },
 ];
 
-// ✅ اللغات المتاحة في الموقع
 const LANG_OPTIONS = [
   { code: "en", label: "English" },
   { code: "ar", label: "العربية" },
@@ -27,7 +25,7 @@ export const Navbar = () => {
   const { t, lang, setLang } = useLang();
 
   const brandFirst = "Mahmoud";
-  const brandLast  = "Ibrahim";
+  const brandLast = "Ibrahim";
 
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -88,8 +86,8 @@ export const Navbar = () => {
           }}
         >
           <span className="relative z-10 font-bold">
-            <span className="text-glow text-foreground text-2xl">{brandFirst}</span>{" "}
-            {brandLast}
+            <span className="brand-word brand-word-1 text-2xl">{brandFirst}</span>
+            <span className="brand-word brand-word-2 ml-1">{brandLast}</span>
           </span>
         </a>
 
@@ -183,14 +181,14 @@ export const Navbar = () => {
             )}
           >
             <div className="flex items-center justify-between p-4 border-b border-border/30 min-h-[70px]">
-              <a
-                href="#hero"
-                className="text-lg font-bold text-primary flex items-center"
-                onClick={() => { setActiveLink("#hero"); setIsMenuOpen(false); }}
-              >
-                <span className="text-glow text-foreground">{brandFirst}</span>{" "}
-                <span className="text-primary ml-1">{brandLast}</span>
-              </a>
+                <a
+                  href="#hero"
+                  className="text-lg font-bold text-primary flex items-center"
+                  onClick={() => { setActiveLink("#hero"); setIsMenuOpen(false); }}
+                >
+                  <span className="brand-word brand-word-1">{brandFirst}</span>
+                  <span className="brand-word brand-word-2 ml-1">{brandLast}</span>
+                </a>
               <button
                 onClick={() => setIsMenuOpen(false)}
                 className="p-2 text-foreground hover:text-primary hover:bg-primary/10 rounded-full transition-colors duration-200 ml-4"

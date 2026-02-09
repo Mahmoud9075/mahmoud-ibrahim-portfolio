@@ -24,11 +24,9 @@ export const AboutSection = () => {
         </h2>
 
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-          {/* Photo Section */}
           <div className="flex justify-center lg:order-2">
             <div className="relative">
               <div className="w-80 h-80 rounded-2xl overflow-hidden bg-gradient-to-br from-primary/20 to-primary/5 border border-primary/20 shadow-2xl">
-                {/* ضع الصورة في: public/me/mahmoud-ibrahim.jpg */}
                 <img
                   src="/me/mahmoud ibrahim.jpg"
                   alt={t("about.photo.alt")}
@@ -36,16 +34,15 @@ export const AboutSection = () => {
                   className="w-full h-full object-cover"
                   onError={(e) => { e.currentTarget.src = "/api/placeholder/320/320"; }}
                 />
-                {/* Decorative elements */}
+                
                 <div className="absolute -top-4 -right-4 w-8 h-8 bg-primary rounded-full opacity-80" aria-hidden="true" />
                 <div className="absolute -bottom-4 -left-4 w-6 h-6 bg-primary/60 rounded-full" aria-hidden="true" />
               </div>
-              {/* Background decoration */}
+              
               <div className="absolute -z-10 top-4 left-4 w-80 h-80 rounded-2xl bg-gradient-to-br from-primary/10 to-transparent" aria-hidden="true" />
             </div>
           </div>
-
-          {/* Content Section */}
+          
           <div className="space-y-6 lg:order-1 text-center lg:text-start">
             <h3 className="text-2xl font-semibold">
               {t("about.role")}
@@ -57,7 +54,7 @@ export const AboutSection = () => {
           </div>
         </div>
 
-        {/* Skills/Experience Cards */}
+        
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mt-16">
           <div 
             ref={card1Ref}
@@ -93,7 +90,6 @@ export const AboutSection = () => {
             </div>
           </div>
 
-          {/* Card 3 */}
           <div 
             ref={card3Ref}
             className="gradient-border p-6 card-hover opacity-0 anim-reveal-2"
@@ -110,7 +106,7 @@ export const AboutSection = () => {
               </div>
             </div>
           </div>
-          {/* لو مش عايز البطاقة الثالثة، احذفها واحذف Import Award */}
+          
         </div>
       </div>
     </section>
